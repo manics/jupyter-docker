@@ -1,4 +1,5 @@
-FROM jupyter/base-notebook:9089b66a9813
+# Tag updated 2018-03-19
+FROM jupyter/base-notebook:c19283de5a6f
 MAINTAINER ome-devel@lists.openmicroscopy.org.uk
 
 USER root
