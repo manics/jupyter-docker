@@ -38,7 +38,7 @@ ADD logo-32x32.png logo-64x64.png .local/share/jupyter/kernels/python2/
 
 # Use the default workdir for compatibility with other deployments
 WORKDIR /home/jovyan
-RUN git clone -b 0.6.0 https://github.com/IDR/idr-notebooks /notebooks
+RUN git clone -b 0.6.0 https://github.com/IDR/idr-notebooks notebooks
 
 # Autodetects jupyterhub and standalone modes
 CMD ["start-notebook.sh"]
