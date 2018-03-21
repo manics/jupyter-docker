@@ -7,7 +7,7 @@ RUN apt-get update -y && \
     apt-get install -y nodejs wget git && \
     apt-get install -y build-essential
 
-RUN install -o jovyan -g users -d /notebooks /opt/omero
+RUN install -o jovyan -g users -d /opt/omero
 
 # switch user
 USER jovyan
@@ -36,9 +36,8 @@ RUN conda env create -n python2 -f environment-python2.yml
 RUN /opt/conda/envs/python2/bin/python -m ipykernel install --user --name python2 --display-name 'OMERO Python 2'
 ADD logo-32x32.png logo-64x64.png .local/share/jupyter/kernels/python2/
 
-# switch user and working directory to /notebooks folder
-USER jovyan
-WORKDIR /notebooks
+# Use the default workdir for compatibility with other deployments
+WORKDIR /home/jovyan
 RUN git clone -b 0.6.0 https://github.com/IDR/idr-notebooks /notebooks
 
 # Autodetects jupyterhub and standalone modes
